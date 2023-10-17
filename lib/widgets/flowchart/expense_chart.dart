@@ -5,7 +5,9 @@ import 'package:intl/intl.dart';
 
 class ExpenseChart extends StatelessWidget {
   final List<Expense> expenses;
-  const ExpenseChart({super.key, required this.expenses});
+  const ExpenseChart({super.key, required this.expenses,});
+
+    
 
   List<Map<String, Object>> get groupedTransactionValues {
     return List.generate(7, (index) {
@@ -18,8 +20,7 @@ class ExpenseChart extends StatelessWidget {
         if (expenses[i].date.day == weekDay.day &&
             expenses[i].date.month == weekDay.month &&
             expenses[i].date.year == weekDay.year) {
-          // ignore: unnecessary_cast
-          totalSum += expenses[i].amount as double;
+          totalSum += expenses[i].amount;
         }
       }
       if (expenses.isNotEmpty) {
